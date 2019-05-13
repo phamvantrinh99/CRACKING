@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+#include <fstream>
+#include <string>
+void main()
+{
+	string s;
+	int choose;
+	while (1)
+	{
+		cout << "----------------CHON LOAI KEY----------------" << endl;
+		cout << "1.  Business" << endl;
+		cout << "2.  Personal" << endl;
+		cout << "3. Thoat" << endl;
+		cout << "			Nhap lua chon: ";
+		cin >> choose;
+		switch (choose)
+		{
+		case 1:
+		{
+				  ifstream Inp;
+				  Inp.open("Business.txt");
+				  int random = rand() % 265;
+				  int dem = 0;
+				  while (!Inp.eof())
+				  {
+					  getline(Inp, s);
+					  dem++;
+					  if (dem == random) break;
+				  }
+				  cout << "			KEY BUSINESS: "<<s<<endl<<endl;
+				  Inp.close();
+				  break;
+		}
+		case 2:
+		{
+				  ifstream Inp;
+				  Inp.open("Personal.txt");
+				  int random = rand() % 125;
+				  int dem = 0;
+				  while (!Inp.eof())
+				  {
+					  getline(Inp, s);
+					  dem++;
+					  if (dem == random) break;
+				  }
+				  cout << "			KEY PERSONAL: " << s << endl << endl;
+				  Inp.close();
+				  break;
+		}
+		case 3: exit(1);
+		default: cout << endl << endl;
+		}
+	}
+}
